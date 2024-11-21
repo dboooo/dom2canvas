@@ -1,6 +1,5 @@
 interface Options {
     domWidth?:  string,
-    domHeight?: string,
     canvas?: HTMLCanvasElement,
     canvasWidth?: number,
     canvasHeight?: number,
