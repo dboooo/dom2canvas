@@ -17,7 +17,10 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "tsc && vite build",
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
   },
   "devDependencies": {
     "typescript": "~5.6.3",
