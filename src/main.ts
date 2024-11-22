@@ -1,3 +1,3 @@
-import Dom2canvas from '../lib/main'
+import dom2canvas from 'dom2canvas'
 
-Dom2canvas()
+dom2canvas(document.querySelector('#app') as HTMLElement)

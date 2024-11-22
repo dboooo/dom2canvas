@@ -1,5 +1,3 @@
-import jsPDF from "jspdf";
-
 interface Options {
   domWidth?:  string,
   canvas?: HTMLCanvasElement,
@@ -9,42 +7,24 @@ interface Options {
   downloadPdf?: boolean,
 }
 
-export default function Dom2canvas(element?: HTMLElement | string, options?: Options) {
+export default function Dom2canvas(element?: HTMLElement | string, options?: Options): HTMLCanvasElement {
   let insert_el = `
     <style>
       h1 {
-        background: linear-gradient(60deg, #fff, #000);
-        text-align: center;
-        border-radius: 50%;
-        opacity: 0.6;
-      }
-      .test {
-        padding-top: 2rem;
-        padding-bottom: 5rem;
-        border-top: 1px solid #000;
-      }
-      h2 {
-          text-align: center;
-          font-family: Papyrus, fantasy;
-          font-style: italic; 
-          color: blue;
+        color: red;
       }
     </style>
     <h1>Hello World!</h1>
-    <div class="test"></div> 
-    <h2>Hello World!</h2>
   `
   if(typeof element === 'string') {
-    // 先插入
     insert_el = element
-  } else if(element instanceof HTMLElement) {
+  } else if(element?.innerHTML) {
     insert_el = element.innerHTML
   }
 
 
   const svg_data = insertElement(insert_el, options?.domWidth)
 
-  // 再根据情况初始化
   let canvas: HTMLCanvasElement;
   if(options?.canvas) {
     canvas = options.canvas
@@ -76,25 +56,18 @@ export default function Dom2canvas(element?: HTMLElement | string, options?: Opt
         }
       })
         .then(() => {
-          if(options?.downloadImage && options.downloadPdf) {
-            downloadImage(canvas)
-            downloadPdf(canvas)
-            return
-          }
           if(options?.downloadImage) {
             downloadImage(canvas)
             return
-          } else if(options?.downloadPdf) {
-            downloadPdf(canvas)
-            return
           }
-
           document.body.appendChild(canvas)
         }).catch(err=>{
           console.error(err)
         })
     };
   };
+
+  return canvas
 }
 
 
@@ -119,11 +92,5 @@ function downloadImage(canvas: HTMLCanvasElement) {
   link.setAttribute("download", "index.png");
   document.body.appendChild(link);
   link.click();
-}
-
-function downloadPdf(canvas: HTMLCanvasElement) {
-  const pdf = new jsPDF();
-
-  pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 600, 600);
-  pdf.save("index.pdf");
+  document.body.removeChild(link)
 }

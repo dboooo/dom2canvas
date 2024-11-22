@@ -1,1 +1,0 @@
-# dom2canvas2pdf

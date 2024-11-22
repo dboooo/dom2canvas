@@ -5,6 +5,6 @@ interface Options {
     canvasHeight?: number,
     downloadImage?: boolean,
     downloadPdf?: boolean,
-  }
+}
 
-export function Dom2canvas(element: HTMLElement | string, options: Options): void
+export default function Dom2canvas(element?: HTMLElement | string, options?: Options): HTMLCanvasElement
