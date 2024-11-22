@@ -13,5 +13,8 @@
   "description": "",
   "devDependencies": {
     "vitepress": "^1.5.0"
+  },
+  "dependencies": {
+    "dom2canvas": "^1.0.3"
   }
 }

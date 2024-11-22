@@ -2,7 +2,7 @@
 <div align="center">
   <h2 align="center">dom2canvas</h2>
   <p align="center">
-    Convert dom/stings to canvas, it's just <strong>0.85kb(gzip)!!</strong>
+    Convert dom/stings to canvas, it's just <strong>0.78kb(gzip)!!</strong>
     <br />
     <br />
     <a href="https://dom2canvas2pdf.vercel.app/"><strong>Explore the docs »</strong></a>

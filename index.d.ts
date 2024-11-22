@@ -4,7 +4,7 @@ interface Options {
     canvasWidth?: number,
     canvasHeight?: number,
     downloadImage?: boolean,
-    downloadPdf?: boolean,
-}
+    closeAutoRender?: boolean
+  }
 
 export default function Dom2canvas(element?: HTMLElement | string, options?: Options): HTMLCanvasElement

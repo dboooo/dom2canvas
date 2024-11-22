@@ -1,85 +1,80 @@
-# Markdown Extension Examples
+# Examples
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
-
-## Syntax Highlighting
-
-VitePress provides Syntax Highlighting powered by [Shiki](https://github.com/shikijs/shiki), with additional features like line-highlighting:
-
-**Input**
-
-````md
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
-}
+## Get Started
+use npm: 
 ```
-````
-
-**Output**
-
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
-}
+npm i dom2canvas
 ```
 
-## Custom Containers
-
-**Input**
-
-```md
-::: info
-This is an info box.
-:::
-
-::: tip
-This is a tip.
-:::
-
-::: warning
-This is a warning.
-:::
-
-::: danger
-This is a dangerous warning.
-:::
-
-::: details
-This is a details block.
-:::
+use yarn: 
+```
+yarn add dom2canvas
 ```
 
-**Output**
+use pnpm: 
+```
+pnpm i dom2canvas
+```
 
-::: info
-This is an info box.
-:::
 
-::: tip
-This is a tip.
-:::
+## Use
+1. Use DOM Element: 
 
-::: warning
-This is a warning.
-:::
+```html
+    <div id="app">
+      <style>
+        h1 {
+          color: red;
+          font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
+        }
+      </style>
+      <h1>Hello World</h1>
+    </div>
+    <script src="./src/main.ts" type="module"></script>
+```
+./src/main.ts content: 
+```ts
+import dom2canvas from 'dom2canvas'
 
-::: danger
-This is a dangerous warning.
-:::
+dom2canvas(document.querySelector('#app') as HTMLElement)
+```
 
-::: details
-This is a details block.
-:::
+2. Dom Strings
+./src/main.ts content: 
+```ts
+import dom2canvas from 'dom2canvas'
 
-## More
+dom2canvas(`
+    <style>
+      h1 {
+        font-family: Papyrus, fantasy;
+        color: red;
+      }
+    </style>
+    <h1>Hello World!</h1>
+`)
+```
+3. Strightly Use
+```ts
+import dom2canvas from 'dom2canvas'
 
-Check out the documentation for the [full list of markdown extensions](https://vitepress.dev/guide/markdown).
+dom2canvas()
+```
+
+note: you should import this script in your html body first!
+
+
+## Transform to pdf
+
+I recommand you try jspdf, and just give it this code it will work!
+
+```ts
+import { jsPDF } from "jspdf";
+import dom2canvas from 'dom2canvas'
+
+const canvas = dom2canvas()
+
+const pdf = new jsPDF();
+pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0);
+pdf.save("downloadedPdf.pdf");
+```

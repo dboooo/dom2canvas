@@ -4,10 +4,11 @@ interface Options {
   canvasWidth?: number,
   canvasHeight?: number,
   downloadImage?: boolean,
-  downloadPdf?: boolean,
+  closeAutoRender?: boolean,
+  styles?: String
 }
 
-export default function Dom2canvas(element?: HTMLElement | string, options?: Options): HTMLCanvasElement {
+export default function Dom2canvas(element?: HTMLElement | string, options?: Options): Promise<HTMLCanvasElement> {
   let insert_el = `
     <style>
       h1 {
@@ -60,20 +61,26 @@ export default function Dom2canvas(element?: HTMLElement | string, options?: Opt
             downloadImage(canvas)
             return
           }
-          document.body.appendChild(canvas)
+          if(options?.canvas)return
+          if(!options?.closeAutoRender) {
+            document.body.appendChild(canvas)
+          }
         }).catch(err=>{
           console.error(err)
         })
     };
   };
 
-  return canvas
+  return new Promise((reject, resolve)=>{
+    
+  })
 }
 
 
 function insertElement(ele: string, width="600px") {
   return `
     <svg xmlns="http://www.w3.org/2000/svg">
+
         <foreignObject width="${width}" height="100%">
           <div
             xmlns="http://www.w3.org/1999/xhtml"
