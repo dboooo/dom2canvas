@@ -6,53 +6,40 @@ hero:
   text: "Convert DOM Elements/strings to canvas"
   actions:
     - theme: brand
-      text: Markdown Examples
+      text: Examples
       link: /markdown-examples
+
+features:
+  - icon: ⚡️
+    title: Mini
+    details: Based on typescript, Only 0.67kb
+  - icon: ✨
+    title: Transform 
+    details: Transform to canvas | image | pdf
+  - icon: 🛠️
+    title: Styles 
+    details: Provide the styles you want to show!!
 ---
-
-## Quick Show: 
-
-```js
-// code: 
-import Dom2canvas from 'dom2canvas'
-
-Dom2canvas(document.querySelector('.dom'),{
-    canvas: document.querySelector("#render-container"),
-    canvasHeight: 200,
-    canvasWidth: 200
-})
-
-```
-### HTML DOM Content: 
-<br />
-<div class="dom">
-  <h3>Hello World</h3>
-</div>
-
-
-### OUT PUT: 
-
-<canvas id="render-container"></canvas>
-
 
 <script setup>
 import { onMounted } from 'vue'
 import Dom2canvas from 'dom2canvas'
 
 onMounted(()=>{
-  Dom2canvas(document.querySelector('.dom'),{
-      canvas: document.querySelector("#render-container"),
-      canvasHeight: 200,
-      canvasWidth: 200
+  const container = document.querySelector('.test2')
+  const el = document.querySelector('.test2 h1')
+  Dom2canvas(el, '', {
+    width: 400,
+    height: 200
+  }).then(canvas=>{
+    container.append(canvas)
   })
-
-  const container = document.querySelector('.VPHomeHero .container')
-  const canvas = Dom2canvas(container.querySelector('.main'),{
-      canvasHeight: 300,
-      canvasWidth: 500
-  })
-
-  console.log(canvas)
-
 })
 </script>
+
+<h2 class="test2 container" style="display: flex; justify-content: space-between;">
+<div class="left">
+  <h1>I will become canvas...</h1>
+  <h3>Out put show right: </h3>
+</div>
+</h2>

@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "dom2canvas2pdf",
-  description: "Convert DOM Elements/strings to canvas | pdf",
+  title: "dom2canvas",
+  description: "Convert DOM Elements/strings to canvas | pdf | img",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -20,7 +20,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/dboooo' }
+      { icon: 'github', link: 'https://github.com/dboooo/dom2canvas' }
     ]
   }
 })

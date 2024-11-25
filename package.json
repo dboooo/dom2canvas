@@ -1,10 +1,10 @@
 {
   "name": "dom2canvas",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Ambob",
   "type": "module",
   "license": "MIT",
-  "description": "Convert DOM Elements/strings to canvas | pdf",
+  "description": "Convert DOM Elements/strings to canvas | pdf && style whatever you want to show on canvas/img/pdf",
   "keywords": [
     "dom",
     "html2canvas",
@@ -12,9 +12,10 @@
     "dom2pdf",
     "dom2canvas2pdf",
     "pdf",
-    "canvas"
+    "canvas",
+    "img"
   ],
-  "homepage": "https://dom2canvas2pdf.vercel.app/",
+  "homepage": "https://github.com/dboooo/dom2canvas",
   "bugs": {
     "url": "https://github.com/dboooo/dom2canvas/issues"
   },
@@ -33,7 +34,6 @@
     "build": "tsc && vite build"
   },
   "devDependencies": {
-    "dom2canvas": "^1.0.3",
     "jspdf": "^2.5.2",
     "typescript": "~5.6.3",
     "vite": "^5.4.9"

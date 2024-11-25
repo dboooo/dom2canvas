@@ -1,30 +1,35 @@
 interface Options {
-  domWidth?:  string,
-  canvas?: HTMLCanvasElement,
-  canvasWidth?: number,
-  canvasHeight?: number,
-  downloadImage?: boolean,
-  closeAutoRender?: boolean,
-  styles?: String
+  width?: number
+  height?: number
+  canvas?: HTMLCanvasElement
 }
 
-export default function Dom2canvas(element?: HTMLElement | string, options?: Options): Promise<HTMLCanvasElement> {
-  let insert_el = `
+export default function Dom2canvas(element?: HTMLElement | string, styles?: string , options?: Options): Promise<HTMLCanvasElement> {
+  let _el
+
+  let _styles = `
     <style>
       h1 {
         color: red;
       }
     </style>
-    <h1>Hello World!</h1>
   `
+
   if(typeof element === 'string') {
-    insert_el = element
-  } else if(element?.innerHTML) {
-    insert_el = element.innerHTML
+    _el = element
+  } else if(element instanceof HTMLElement) {
+    _el = element.outerHTML
+  } else {
+    _el = `
+      <h1>Hello World124</h1>
+    `
   }
 
+  if(styles) {
+    _styles = styles
+  }
 
-  const svg_data = insertElement(insert_el, options?.domWidth)
+  const _svg = getSvg(_el, _styles, options?.width ?? 660 )
 
   let canvas: HTMLCanvasElement;
   if(options?.canvas) {
@@ -34,70 +39,47 @@ export default function Dom2canvas(element?: HTMLElement | string, options?: Opt
   }
 
   const ctx = canvas.getContext("2d")
-  canvas.width = options?.canvasWidth ?? 600
-  canvas.height = options?.canvasHeight ?? 600
+  canvas.width = options?.width ?? 660
+  canvas.height = options?.height ?? 660
 
-  const svg_blob = new Blob([svg_data], { type: "image/svg+xml;" });
-  const file_url = new FileReader();
+  const svg_blob = new Blob([_svg], { type: "image/svg+xml;" });
+  const _file = new FileReader();
 
-  file_url.readAsDataURL(svg_blob);
-
-  file_url.onload = function (e) {
-    const result = e.target?.result as string;
-    const img = new Image();
-    img.src = result;
-
-    img.onload = function () {
-      new Promise((resolve) => {
-        if(ctx) {
-          ctx.drawImage(img, 0, 0);
-          resolve(img);
-        } else {
-          console.log("canvas error", canvas);
-        }
-      })
-        .then(() => {
-          if(options?.downloadImage) {
-            downloadImage(canvas)
-            return
-          }
-          if(options?.canvas)return
-          if(!options?.closeAutoRender) {
-            document.body.appendChild(canvas)
+  return new Promise((resolved)=>{
+    _file.readAsDataURL(svg_blob)
+    _file.onload = function (e) {
+      const result = e.target?.result as string;
+      const img = new Image();
+      img.src = result;
+  
+      img.onload = function () {
+        new Promise(() => {
+          if(ctx) {
+            ctx.drawImage(img, 0, 0);
+            resolved(canvas)
+          } else {
+            console.log("canvas error", canvas);
           }
         }).catch(err=>{
-          console.error(err)
-        })
+            console.error(err)
+          })
+      };
     };
-  };
-
-  return new Promise((reject, resolve)=>{
-    
   })
+
 }
 
-
-function insertElement(ele: string, width="600px") {
+function getSvg (content: string, styles: string, width: number): string {
   return `
-    <svg xmlns="http://www.w3.org/2000/svg">
-
+      <svg xmlns="http://www.w3.org/2000/svg">
         <foreignObject width="${width}" height="100%">
           <div
             xmlns="http://www.w3.org/1999/xhtml"
           >
-            ${ele}
+            ${styles}
+            ${content}
           </div>
         </foreignObject>
       </svg>
   `
-}
-
-function downloadImage(canvas: HTMLCanvasElement) {
-  const link = document.createElement("a");
-
-  link.setAttribute("href", canvas.toDataURL("image/png"));
-  link.setAttribute("download", "index.png");
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link)
 }

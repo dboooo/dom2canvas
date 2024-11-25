@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       dom2canvas:
-        specifier: ^1.0.3
-        version: 1.0.3
+        specifier: ^1.0.4
+        version: 1.0.4
     devDependencies:
       vitepress:
         specifier: ^1.5.0
@@ -540,8 +540,8 @@ packages:
   devlop@1.1.0:
     resolution: {integrity: sha512-RWmIqhcFf1lRYBvNmr7qTNuyCt/7/ns2jbpp1+PalgE/rDQcBT0fioSMUpJ93irlUhC5hrg4cYqe6U+0ImW0rA==}
 
-  dom2canvas@1.0.3:
-    resolution: {integrity: sha512-ugl3P2VaincV1SDzVXwZ+1Bole95LDS8xjWncOLEb47dbGukhF8T9rc5lK049OwFJtOdhn64lcrs6g1rVlY3+Q==}
+  dom2canvas@1.0.4:
+    resolution: {integrity: sha512-aI/ArC12mhS8t4Qx9cvcTBxlWsyKA1uWXew79Tgg3RNiNhqqF6aqBoPX8/slpYvoMVsL41h8180Iku2zh55aCA==}
 
   emoji-regex-xs@1.0.0:
     resolution: {integrity: sha512-LRlerrMYoIDrT6jgpeZ2YYl/L8EulRTt5hQcYjy5AInh7HWXKimpqx68aknBFpGL2+/IcogTcaydJEgaTmOpDg==}
@@ -1245,7 +1245,7 @@ snapshots:
     dependencies:
       dequal: 2.0.3
 
-  dom2canvas@1.0.3: {}
+  dom2canvas@1.0.4: {}
 
   emoji-regex-xs@1.0.0: {}
 
