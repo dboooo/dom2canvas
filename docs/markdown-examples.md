@@ -1,135 +1,132 @@
 # Examples
 
-## What dom2canvas2pdf could do?
-0. control the styles what ever you want to show!! 
-
-1. transform dom Elements to canvas, then return the canvas value for you by Promise!
-
-2. download image result directly with a little code.
-
-3. download pdf result with jspdf.
-
-
-## Use
-1. Use DOM Element & itselves styles: 
-
-```html
-    <div id="app">
-      <style>
-        h1 {
-          color: red;
-          font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
-        }
-      </style>
-      <h1>Hello World</h1>
-    </div>
-    <script src="./src/main.ts" type="module"></script>
-```
-./src/main.ts content: 
+## API Introduce
 ```ts
-import dom2canvas from 'dom2canvas2pdf'
+Dom2canvas(element?: Element, styles?: string, options?: Options): Promise<HTMLCanvasElement>
 
-const _el = document.querySelector('#app') as HTMLElement
+type Element = HTMLElement | string
 
-dom2canvs(_el).then((canvas)=>{
-    document.body.append(canvas)
-})
-```
-
-2. Dom Strings && styles strings
-./src/main.ts content: 
-```ts
-import dom2canvas from 'dom2canvas'
-
-const _el = document.querySelector('h1') as HTMLElement
-const _styles = `
-      <style>
-        h1 {
-          color: yellow;
-          font-size: 3rem;
-          font-family: 'Times New Roman', Times, serif;
-        }
-      </style>
-`
-
-dom2canvs(_el,_styles, {
-    width: 600,
-    height: 800
-}).then((canvas)=>{
-    document.body.append(canvas)
-})
-```
-3. Input string el & style strings
-```ts
-import dom2canvas from 'dom2canvas'
-
-const _el = `
-  <h1>Hello World!!!! 777</h1>
-`
-const _styles = `
-      <style>
-        h1 {
-          color: yellow;
-          font-size: 3rem;
-          font-family: 'Times New Roman', Times, serif;
-        }
-      </style>
-`
-
-dom2canvs(_el,_styles, {
-    width: 600,
-    height: 800
-}).then((canvas)=>{
-    document.body.append(canvas)
-})
-```
-
-## Transform to Image & download
-
-add this fuction to your code
-```ts
-......
-dom2canvs(_el).then((canvas)=>{
-    document.body.append(canvas)
-
-    //+++ new +++
-    downloadImage(canvas)
-})
-
-function downloadImage(canvas) {
-    const link = document.createElement("a");
-    
-    // change the type of the image you want to download!
-    link.setAttribute("href", canvas.toDataURL("image/png"));
-    link.setAttribute("download", "index.png");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link)
+interface Options {
+  width?: string
+  height?: string
+  canvas?: HTMLCanvasElement
 }
 ```
 
-## Transform to pdf & download
 
-1. install jspdf 
-```
-npm i jspdf
-```
 
-2. add this fuction to your code
-```ts
-dom2canvs(_el).then((canvas)=>{
-    document.body.append(canvas)
+## Content Will Render
+<div id="test111" data-v-a6369f60="" class="items"><div data-v-a6369f60="" class="item grid-3"><div data-v-1ffeb59b="" data-v-a6369f60="" class="VPLink no-icon VPFeature"><article data-v-1ffeb59b="" class="box"><div data-v-1ffeb59b="" class="icon">⚡️</div><h2 data-v-1ffeb59b="" class="title">Mini</h2><p data-v-1ffeb59b="" class="details">Based on typescript, Only 0.67kb</p><!--v-if--></article></div></div><div data-v-a6369f60="" class="item grid-3"><div data-v-1ffeb59b="" data-v-a6369f60="" class="VPLink no-icon VPFeature"><article data-v-1ffeb59b="" class="box"><div data-v-1ffeb59b="" class="icon">✨</div><h2 data-v-1ffeb59b="" class="title">Transform</h2><p data-v-1ffeb59b="" class="details">Transform to canvas | image | pdf</p><!--v-if--></article></div></div><div data-v-a6369f60="" class="item grid-3"><div data-v-1ffeb59b="" data-v-a6369f60="" class="VPLink no-icon VPFeature"><article data-v-1ffeb59b="" class="box"><div data-v-1ffeb59b="" class="icon">🛠️</div><h2 data-v-1ffeb59b="" class="title">Styles</h2><p data-v-1ffeb59b="" class="details">Provide the styles you want to show!!</p><!--v-if--></article></div></div></div>
 
-    //+++ new +++
-    downloadPdf(canvas)
-})
+  <button style="border: 1px solid; padding: 4px;" id="_img">Download Image</button>
 
-function downloadPdf (canvas) {
-    const pdf = new jsPDF();
-    pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0);
-    pdf.save("downloadedPdf.pdf");
+<button style="border: 1px solid; padding: 4px;" id="_pdf">Download PDF</button>
+
+<script setup>
+
+import { onMounted } from 'vue'
+import Dom2canvas from 'dom2canvas'
+import jsPDF from 'jspdf'
+
+onMounted(()=>{
+  const _img_ct = document.querySelector('#test111')
+  const _img = document.querySelector('#_img')
+  const _pdf = document.querySelector('#_pdf')
+  const _styles =  `
+      <style>
+      .items {
+          display: flex;
+          flex-wrap: no-wrap;
+          margin: 0 auto;
+          margin: -8px;
+          background: #fff;
+          padding: 1rem;
+        }
+        .item {
+          padding: 8px;
+        }
+        .grid-3 {
+          width: calc(100% / 3);
+        }
+        .box {
+          display: flex;
+          flex-direction: column;
+          padding: 24px;
+          height: 100%;
+        }
+        .VPFeature {
+          display: block;
+          border: 1px solid #f6f6f7;
+          border-radius: 12px;
+          height: 100%;
+          background: #f6f6f7;
+        }
+        .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            background: rgba(142, 150, 170, 0.14);
+            width: 48px;
+            height: 48px;
+            font-size: 24px;
+        }
+        .title {
+          line-height: 24px;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        h2 {
+          margin: 48px 0 16px;
+          border-top: 1px solid #c2c2c4;
+          padding-top: 24px;
+          letter-spacing: -0.02em;
+        }
+        .details {
+            flex-grow: 1;
+            padding-top: 8px;
+            line-height: 24px;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(60, 60, 67, 0.78);
+        }
+        <\/style>
+      `
+
+  _img.addEventListener('click',()=>{
+      Dom2canvas(_img_ct, _styles, {
+        width: _img_ct.clientWidth,
+        height: _img_ct.clientHeight
+      }).then((canvas)=>{
+          downloadImage(canvas)
+      })
+  })
+
+  _pdf.addEventListener('click',()=>{
+      Dom2canvas(_img_ct, _styles, {
+        width: _img_ct.clientWidth,
+        height: _img_ct.clientHeight
+      }).then((canvas)=>{
+          downloadPdf(canvas)
+      })
+  })
+
+    function downloadPdf (canvas) {
+      const pdf = new jsPDF();
+      pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0);
+      pdf.save("downloadedPdf.pdf");
+    }
+    function downloadImage(canvas) {
+          const link = document.createElement("a");
+          
+          // change the type of the image you want to download!
+          link.setAttribute("href", canvas.toDataURL("image/png"));
+          link.setAttribute("download", "index.png");
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link)
+    }
 }
-```
-
-## Last
-I wish this lib will help you!
+)
+</script>

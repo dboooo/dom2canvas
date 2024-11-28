@@ -5,15 +5,8 @@ interface Options {
 }
 
 export default function Dom2canvas(element?: HTMLElement | string, styles?: string , options?: Options): Promise<HTMLCanvasElement> {
-  let _el
-
-  let _styles = `
-    <style>
-      h1 {
-        color: red;
-      }
-    </style>
-  `
+  let _el;
+  let _styles = ``;
 
   if(typeof element === 'string') {
     _el = element
@@ -29,7 +22,7 @@ export default function Dom2canvas(element?: HTMLElement | string, styles?: stri
     _styles = styles
   }
 
-  const _svg = getSvg(_el, _styles, options?.width ?? 660 )
+  const _svg = getSvg(_el, _styles, options?.width ?? 800 )
 
   let canvas: HTMLCanvasElement;
   if(options?.canvas) {
@@ -39,8 +32,8 @@ export default function Dom2canvas(element?: HTMLElement | string, styles?: stri
   }
 
   const ctx = canvas.getContext("2d")
-  canvas.width = options?.width ?? 660
-  canvas.height = options?.height ?? 660
+  canvas.width = options?.width ?? 800
+  canvas.height = options?.height ?? 800
 
   const svg_blob = new Blob([_svg], { type: "image/svg+xml;" });
   const _file = new FileReader();

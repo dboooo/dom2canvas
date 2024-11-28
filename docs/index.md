@@ -28,7 +28,13 @@ import Dom2canvas from 'dom2canvas'
 onMounted(()=>{
   const container = document.querySelector('.test2')
   const el = document.querySelector('.test2 h1')
-  Dom2canvas(el, '', {
+  Dom2canvas(el, `
+    <style>
+      h1 {
+        color: var(--vp-c-text-1);
+      }
+    <\/style>
+  `, {
     width: 400,
     height: 200
   }).then(canvas=>{

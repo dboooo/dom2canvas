@@ -5,7 +5,7 @@
     Convert dom/stings to <strong>canvas/image/pdf</strong> with styles control!!!
     <br />
     <br />
-      it's only <strong>0.67 kB(gzip)!!</strong>
+      it's only <strong>0.64 kB(gzip)!!</strong>
     <br />
     <br />
     <a href="https://dom2canvas2pdf.vercel.app/"><strong>Explore the docs »</strong></a>
@@ -44,6 +44,16 @@ use pnpm:
 pnpm i dom2canvas
 ```
 
+## API Introduce
+```ts
+Dom2canvas(element?: HTMLElement | string, styles?: string, options?: Options): Promise<HTMLCanvasElement>
+
+interface Options {
+  width?: string
+  height?: string
+  canvas?: HTMLCanvasElement
+}
+```
 
 ## Use
 1. Use DOM Element & itselves styles: 

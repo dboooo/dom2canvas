@@ -1,37 +1,58 @@
 {
-  "hash": "62662f8d",
-  "configHash": "9ff486fb",
+  "hash": "1227275a",
+  "configHash": "f4ab13c4",
   "lockfileHash": "d39c4082",
-  "browserHash": "13209060",
+  "browserHash": "3c909213",
   "optimized": {
     "vue": {
       "src": "../../../node_modules/.pnpm/vue@3.5.13/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "70d33f24",
+      "fileHash": "d8b1415b",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../node_modules/.pnpm/@vue+devtools-api@7.6.4/node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "72a49228",
+      "fileHash": "98c9cd35",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../node_modules/.pnpm/@vueuse+core@11.3.0_vue@3.5.13/node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "0ada42af",
+      "fileHash": "8e42888e",
       "needsInterop": false
     },
     "dom2canvas": {
       "src": "../../../node_modules/.pnpm/dom2canvas@1.0.4/node_modules/dom2canvas/dist/index.js",
       "file": "dom2canvas.js",
-      "fileHash": "78acdb8b",
+      "fileHash": "1d8a0f72",
+      "needsInterop": false
+    },
+    "jspdf": {
+      "src": "../../../../node_modules/.pnpm/jspdf@2.5.2/node_modules/jspdf/dist/jspdf.es.min.js",
+      "file": "jspdf.js",
+      "fileHash": "afe30600",
       "needsInterop": false
     }
   },
   "chunks": {
     "chunk-CQOUZRMK": {
       "file": "chunk-CQOUZRMK.js"
+    },
+    "html2canvas.esm-GOCEXGJA": {
+      "file": "html2canvas__esm-GOCEXGJA.js"
+    },
+    "purify.es-TFFHUK4X": {
+      "file": "purify__es-TFFHUK4X.js"
+    },
+    "index.es-XZZEUH3V": {
+      "file": "index__es-XZZEUH3V.js"
+    },
+    "chunk-5IYWSIJC": {
+      "file": "chunk-5IYWSIJC.js"
+    },
+    "chunk-5WRI5ZAA": {
+      "file": "chunk-5WRI5ZAA.js"
     }
   }
 }

@@ -1,3 +1,5 @@
+import "./chunk-5WRI5ZAA.js";
+
 // node_modules/.pnpm/dom2canvas@1.0.4/node_modules/dom2canvas/dist/index.js
 function x(t, l, e) {
   let a, g = `
