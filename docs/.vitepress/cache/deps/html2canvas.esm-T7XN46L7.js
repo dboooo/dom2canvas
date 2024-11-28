@@ -1,6 +1,6 @@
 import "./chunk-5WRI5ZAA.js";
 
-// ../node_modules/.pnpm/html2canvas@1.4.1/node_modules/html2canvas/dist/html2canvas.esm.js
+// node_modules/.pnpm/html2canvas@1.4.1/node_modules/html2canvas/dist/html2canvas.esm.js
 var extendStatics = function(d, b) {
   extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d2, b2) {
     d2.__proto__ = b2;
@@ -7805,4 +7805,4 @@ html2canvas/dist/html2canvas.esm.js:
   PERFORMANCE OF THIS SOFTWARE.
   ***************************************************************************** *)
 */
-//# sourceMappingURL=html2canvas.esm-GOCEXGJA.js.map
+//# sourceMappingURL=html2canvas.esm-T7XN46L7.js.map

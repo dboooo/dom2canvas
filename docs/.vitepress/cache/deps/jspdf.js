@@ -1,9 +1,9 @@
 import {
   _typeof
-} from "./chunk-5IYWSIJC.js";
+} from "./chunk-NTXZW4N3.js";
 import "./chunk-5WRI5ZAA.js";
 
-// ../node_modules/.pnpm/fflate@0.8.2/node_modules/fflate/esm/browser.js
+// node_modules/.pnpm/fflate@0.8.2/node_modules/fflate/esm/browser.js
 var ch2 = {};
 var wk = function(c2, id, msg, transfer, cb) {
   var w2 = new Worker(ch2[id] || (ch2[id] = URL.createObjectURL(new Blob([
@@ -1814,7 +1814,7 @@ var Unzip = function() {
   return Unzip2;
 }();
 
-// ../node_modules/.pnpm/jspdf@2.5.2/node_modules/jspdf/dist/jspdf.es.min.js
+// node_modules/.pnpm/jspdf@2.5.2/node_modules/jspdf/dist/jspdf.es.min.js
 var n = /* @__PURE__ */ function() {
   return "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self ? self : this;
 }();
@@ -5443,14 +5443,14 @@ function(t2) {
   }, t2.loadImageFile = t2.loadFile;
 }(E.API), function(e) {
   function r() {
-    return (n.html2canvas ? Promise.resolve(n.html2canvas) : import("./html2canvas.esm-GOCEXGJA.js")).catch(function(t2) {
+    return (n.html2canvas ? Promise.resolve(n.html2canvas) : import("./html2canvas.esm-T7XN46L7.js")).catch(function(t2) {
       return Promise.reject(new Error("Could not load html2canvas: " + t2));
     }).then(function(t2) {
       return t2.default ? t2.default : t2;
     });
   }
   function i2() {
-    return (n.DOMPurify ? Promise.resolve(n.DOMPurify) : import("./purify.es-TFFHUK4X.js")).catch(function(t2) {
+    return (n.DOMPurify ? Promise.resolve(n.DOMPurify) : import("./purify.es-PJU5TWM7.js")).catch(function(t2) {
       return Promise.reject(new Error("Could not load dompurify: " + t2));
     }).then(function(t2) {
       return t2.default ? t2.default : t2;
@@ -8500,7 +8500,7 @@ function(t2) {
  */
 function(t2) {
   function e() {
-    return (n.canvg ? Promise.resolve(n.canvg) : import("./index.es-XZZEUH3V.js")).catch(function(t3) {
+    return (n.canvg ? Promise.resolve(n.canvg) : import("./index.es-PXJ5A7NH.js")).catch(function(t3) {
       return Promise.reject(new Error("Could not load canvg: " + t3));
     }).then(function(t3) {
       return t3.default ? t3.default : t3;

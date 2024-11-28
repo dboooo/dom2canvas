@@ -1,37 +1,37 @@
 {
-  "hash": "1227275a",
+  "hash": "656e4d54",
   "configHash": "f4ab13c4",
-  "lockfileHash": "d39c4082",
-  "browserHash": "3c909213",
+  "lockfileHash": "92b4f6b6",
+  "browserHash": "178c8de9",
   "optimized": {
     "vue": {
       "src": "../../../node_modules/.pnpm/vue@3.5.13/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "d8b1415b",
+      "fileHash": "b09a7306",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../node_modules/.pnpm/@vue+devtools-api@7.6.4/node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "98c9cd35",
+      "fileHash": "a59fdbb1",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../node_modules/.pnpm/@vueuse+core@11.3.0_vue@3.5.13/node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "8e42888e",
+      "fileHash": "046b3cd6",
       "needsInterop": false
     },
     "dom2canvas": {
       "src": "../../../node_modules/.pnpm/dom2canvas@1.0.4/node_modules/dom2canvas/dist/index.js",
       "file": "dom2canvas.js",
-      "fileHash": "1d8a0f72",
+      "fileHash": "689384c5",
       "needsInterop": false
     },
     "jspdf": {
-      "src": "../../../../node_modules/.pnpm/jspdf@2.5.2/node_modules/jspdf/dist/jspdf.es.min.js",
+      "src": "../../../node_modules/.pnpm/jspdf@2.5.2/node_modules/jspdf/dist/jspdf.es.min.js",
       "file": "jspdf.js",
-      "fileHash": "afe30600",
+      "fileHash": "cb866cd6",
       "needsInterop": false
     }
   },
@@ -39,17 +39,17 @@
     "chunk-CQOUZRMK": {
       "file": "chunk-CQOUZRMK.js"
     },
-    "html2canvas.esm-GOCEXGJA": {
-      "file": "html2canvas__esm-GOCEXGJA.js"
+    "html2canvas.esm-T7XN46L7": {
+      "file": "html2canvas__esm-T7XN46L7.js"
     },
-    "purify.es-TFFHUK4X": {
-      "file": "purify__es-TFFHUK4X.js"
+    "purify.es-PJU5TWM7": {
+      "file": "purify__es-PJU5TWM7.js"
     },
-    "index.es-XZZEUH3V": {
-      "file": "index__es-XZZEUH3V.js"
+    "index.es-PXJ5A7NH": {
+      "file": "index__es-PXJ5A7NH.js"
     },
-    "chunk-5IYWSIJC": {
-      "file": "chunk-5IYWSIJC.js"
+    "chunk-NTXZW4N3": {
+      "file": "chunk-NTXZW4N3.js"
     },
     "chunk-5WRI5ZAA": {
       "file": "chunk-5WRI5ZAA.js"

@@ -1,6 +1,6 @@
 import "./chunk-5WRI5ZAA.js";
 
-// ../node_modules/.pnpm/dompurify@2.5.7/node_modules/dompurify/dist/purify.es.js
+// node_modules/.pnpm/dompurify@2.5.7/node_modules/dompurify/dist/purify.es.js
 function _typeof(obj) {
   "@babel/helpers - typeof";
   return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj2) {
@@ -981,4 +981,4 @@ export {
 dompurify/dist/purify.es.js:
   (*! @license DOMPurify 2.5.7 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.5.7/LICENSE *)
 */
-//# sourceMappingURL=purify.es-TFFHUK4X.js.map
+//# sourceMappingURL=purify.es-PJU5TWM7.js.map
